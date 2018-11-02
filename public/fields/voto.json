@@ -1,0 +1,27 @@
+
+{
+    "fields": [
+        {
+            "name": "numero_cedula",
+            "type": "string"
+        },
+        {
+            "name": "lista_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "lista_id",
+            "references": "id",
+            "on": "lists"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Lista",
+            "type": "belongsTo",
+            "class": "App\\Lista"
+        }
+    ]
+}

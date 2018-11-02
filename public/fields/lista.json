@@ -1,0 +1,34 @@
+{
+    "fields": [
+        {
+            "name": "lista_numero",
+            "type": "string"
+        },
+        {
+            "name": "nombre",
+            "type": "text"
+        },
+        {
+            "name": "cantidad_integrantes",
+            "type": "string"
+        },
+        {
+            "name": "logo",
+            "type": "file"
+        },
+        {
+            "name": "descripcion",
+            "type": "text"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|max:191"
+        },
+        {
+            "field": "descripcion",
+            "rules": "nullable|max:191"
+        }
+    ]
+}

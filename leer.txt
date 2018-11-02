@@ -1,0 +1,20 @@
+php artisan crud:generate Institution --fields_from_file="C:\Users\Christian\Dropbox\sufraga\public\fields\institution.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
+php artisan crud:generate List --fields_from_file="C:\Users\Christian\Dropbox\sufraga\public\fields\lista.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
+php artisan crud:generate List --fields_from_file="C:\Users\Christian\Dropbox\sufraga\public\fields\integrante.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
+php artisan crud:generate Voto --fields_from_file="C:\Users\Christian\Dropbox\sufraga\public\fields\voto.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
+php artisan crud:generate Course --fields_from_file="C:\Users\Christian\Dropbox\sufraga\public\fields\curso.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
+php artisan crud:generate Paralelo --fields_from_file="C:\Users\Christian\Dropbox\sufraga\public\fields\paralelo.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
+php artisan crud:generate Cargo --fields_from_file="C:\Users\Christian\Dropbox\sufraga\public\fields\cargo.json" --view-path=admin --controller-namespace=AdminAuth --route-group=admin
+
+
+
+php artisan make:controller AdminAuth//AdminController --resource
+
+php artisan make:seeder CargoTableSeeder
+php artisan make:seeder ListaTableSeeder

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Sufragar',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Suf</b>Edu',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>S</b>Ed',
 
     /*
     |--------------------------------------------------------------------------
@@ -115,73 +115,34 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        'ACCOUNT SETTINGS',
-        [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
+            'text'        => 'Votos',
+            'url'         => 'admin/voto',
         ],
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
+            'text'        => 'Lista',
+            'url'         => 'admin/list',
         ],
         [
-            'text'    => 'Multilevel',
+            'text'    => 'Configuración',
             'icon'    => 'share',
             'submenu' => [
+                /*[
+                    'text' => 'Institución',
+                    'url'  => 'admin/institution',
+                ],*/
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Curso',
+                    'url'  => 'admin/course',
                 ],
                 [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Paralelo',
+                    'url'  => 'admin/paralelo',
                 ],
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Cargo',
+                    'url'  => 'admin/cargo',
                 ],
             ],
-        ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
         ],
     ],
 

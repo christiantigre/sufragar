@@ -1,0 +1,18 @@
+{
+    "fields": [
+        {
+            "name": "cargo_lista",
+            "type": "string"
+        },
+        {
+            "name": "activo",
+            "type": "boolean"
+        }
+    ],
+    "validations": [
+        {
+            "field": "cargo_lista",
+            "rules": "required"
+        }
+    ]
+}

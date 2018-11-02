@@ -1,0 +1,42 @@
+{
+    "fields": [
+        {
+            "name": "institucion",
+            "type": "string"
+        },
+        {
+            "name": "telefono",
+            "type": "text"
+        },
+        {
+            "name": "email",
+            "type": "email"
+        },
+        {
+            "name": "logo",
+            "type": "file"
+        },
+        {
+            "name": "representante",
+            "type": "string"
+        }
+    ],
+    "validations": [
+        {
+            "field": "institucion",
+            "rules": "required|max:191"
+        },
+        {
+            "field": "telefono",
+            "rules": "required|max:17"
+        },
+        {
+            "field": "email",
+            "rules": "required|max:45"
+        },
+        {
+            "field": "representante",
+            "rules": "required|max:191"
+        }
+    ]
+}

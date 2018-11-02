@@ -1,0 +1,47 @@
+
+{
+    "fields": [
+        {
+            "name": "nombre_alumno",
+            "type": "string"
+        },
+        {
+            "name": "apellido_alumno",
+            "type": "boolean"
+        },
+        {
+            "name": "cargo",
+            "type": "string"
+        },
+        {
+            "name": "curso",
+            "type": "string"
+        },
+        {
+            "name": "paralelo",
+            "type": "string"
+        },
+        {
+            "name": "descripcion",
+            "type": "text"
+        },
+        {
+            "name": "lista_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "lista_id",
+            "references": "id",
+            "on": "lists"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "Lista",
+            "type": "belongsTo",
+            "class": "App\\Lista"
+        }
+    ]
+}

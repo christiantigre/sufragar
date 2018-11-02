@@ -1,0 +1,18 @@
+{
+    "fields": [
+        {
+            "name": "paralelo",
+            "type": "string"
+        },
+        {
+            "name": "activo",
+            "type": "boolean"
+        }
+    ],
+    "validations": [
+        {
+            "field": "paralelo",
+            "rules": "required"
+        }
+    ]
+}
