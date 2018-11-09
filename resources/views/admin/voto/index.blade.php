@@ -9,6 +9,9 @@
                     <div class="panel-heading">Votos</div>
                     <div class="panel-body">
                         
+                        <a href="{{ url('/admin/voto/reset') }}" class="btn btn-success btn-sm" title="Add New List">
+                            <i class="fa fa-refresh" aria-hidden="true"></i> RESET
+                        </a>
 
                         <br/>
                         <br/>

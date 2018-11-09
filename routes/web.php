@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
   Route::get('/home', 'AdminAuth\AdminController@index')->name('home');
   Route::get('/addmember/{idlista}', 'AdminAuth\\IntegranteController@addmember');
+  Route::get('/voto/reset', 'AdminAuth\\VotoController@reset');
 });
 
 Route::resource('admin/institution', 'AdminAuth\\InstitutionController');

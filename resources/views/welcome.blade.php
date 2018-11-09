@@ -58,10 +58,22 @@
         </style>
     </head>
     <body>
+        <div class="container">
+
 
         @include('flash::message')
 
-        <div class="flex-center position-ref full-height">
+        <div class="row">
+            
+        
+
+        <div class="col-lg-6 col-md-6">
+            <center>
+                <img src="{{ asset('public/like.jpg') }}" style="margin-top: 130px !important;; max-width: 350px; min-width: auto" />
+            </center>
+        </div>
+
+        <div class="flex-center position-ref full-height col-lg-6 col-md-6">
             {{--
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -144,6 +156,8 @@ float: left;">
             -->
             </div>
         </div>
+</div>
+</div>
 
         <script src="//code.jquery.com/jquery.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

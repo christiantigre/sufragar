@@ -67,7 +67,7 @@
             <div class="content">
                 
                 <div class="title m-b-md">
-                    <img src="{{ asset('like.jpg') }}" style="width: 150px;">
+                    <img src="{{ asset('public/like.jpg') }}" style="width: 150px;">
                 </div>
 
                 <strong>

@@ -248,10 +248,10 @@ VOTO ELECTRONICO
                      <div class="col-sm-6 col-md-3">
                 <div class="panel panel-default panel-card">
                     <div class="panel-heading">
-                        <img src="{{ Storage::disk('local')->url($lista->logo) }}" />
+                        <img src="{{ asset($lista->logo) }}" />
                     </div>
                     <div class="panel-figure">
-                        <img class="img-responsive img-circle" src="{{ Storage::disk('local')->url($item->foto) }}" />
+                        <img class="img-responsive img-circle" src="{{ asset($item->foto) }}" />
                     </div>
                     <div class="panel-body text-center">
                         <h4 class="panel-header"><a href="#">

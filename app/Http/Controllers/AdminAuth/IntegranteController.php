@@ -4,13 +4,14 @@ namespace App\Http\Controllers\AdminAuth;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use App\Integrante;
 use App\Lista;
 use Illuminate\Http\Request;
 use App\Cargo;
 use App\Course;
 use App\Paralelo;
+use Image;
+use Illuminate\Support\Facades\Input;
 
 class IntegranteController extends Controller
 {
@@ -68,9 +69,22 @@ class IntegranteController extends Controller
         $requestData = $request->all();
 
         $requestData = $request->all();
-                if ($request->hasFile('foto')) {
+                /*if ($request->hasFile('foto')) {
             $requestData['foto'] = $request->file('foto')
                 ->store('uploads', 'public');
+        }*/
+
+        if ($request->hasFile('foto')) {
+            $file = Input::file('foto');
+            $uploadPath = public_path('uploads/integrantes/');
+            //$extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalName();
+            $image  = Image::make($file->getRealPath());
+            //$image->resize(1200, 900);
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            $image->save($uploadPath.$fileName);
+            //$file->move($uploadPath, $fileName);
+            $requestData['foto'] = 'uploads/integrantes/'.$fileName;
         }
         
         Integrante::create($requestData); 
@@ -142,6 +156,20 @@ class IntegranteController extends Controller
         
         $integrante = Integrante::findOrFail($id);
         $integrante->update($requestData);
+
+        if ($request->hasFile('foto')) {
+            $file = Input::file('foto');
+            $uploadPath = public_path('uploads/integrantes/');
+            //$extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalName();
+            $image  = Image::make($file->getRealPath());
+            //$image->resize(1200, 900);
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            $image->save($uploadPath.$fileName);
+            //$file->move($uploadPath, $fileName);
+            $requestData['foto'] = 'uploads/integrantes/'.$fileName;
+        }
+        
         //return redirect()->back()->with('flash_message', 'Integrante updated!');
         //return redirect('admin/integrante')->with('flash_message', 'Integrante updated!');
         return redirect('admin/list/'.$requestData['lista_id'])->with('flash_message', 'Integrante updated!');

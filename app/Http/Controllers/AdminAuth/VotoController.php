@@ -20,6 +20,14 @@ class VotoController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    public function reset(){
+        //$votos = Voto::all();
+        //$votos ->truncate();
+        DB::table('votos')->truncate();
+        return redirect()->back()->with('flash_message', 'Votos reseted!');
+    }
+
     public function index(Request $request)
     {
         $keyword = $request->get('search');

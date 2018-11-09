@@ -25,7 +25,7 @@ class Lista extends Model
      *
      * @var array
      */
-    protected $fillable = ['lista_numero', 'nombre', 'cantidad_integrantes', 'logo', 'descripcion'];
+    protected $fillable = ['lista_numero', 'nombre', 'presidente','cantidad_integrantes', 'logo', 'descripcion'];
 
     
 }

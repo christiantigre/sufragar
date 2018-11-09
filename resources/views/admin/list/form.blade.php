@@ -12,6 +12,13 @@
     {!! $errors->first('nombre', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+<div class="form-group {{ $errors->has('presidente') ? 'has-error' : ''}}">
+    <label for="presidente" class="col-md-4 control-label">{{ 'Presidente' }}</label>
+    <div class="col-md-6"> 
+    <textarea class="form-control" rows="5" name="presidente" type="textarea" id="presidente" >{{ $list->presidente or ''}}</textarea>
+    {!! $errors->first('presidente', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 <div class="form-group {{ $errors->has('cantidad_integrantes') ? 'has-error' : ''}}">
     <label for="cantidad_integrantes" class="col-md-4 control-label">{{ 'Integrantes' }}</label>
     <div class="col-md-6"> 

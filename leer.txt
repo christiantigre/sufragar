@@ -18,3 +18,13 @@ php artisan make:controller AdminAuth//AdminController --resource
 
 php artisan make:seeder CargoTableSeeder
 php artisan make:seeder ListaTableSeeder
+
+
+update db
+
+ALTER TABLE `lists` ADD `presidente` VARCHAR(191) NOT NULL AFTER `lista_numero`;
+
+
+
+acceso remoto localhost
+https://www.youtube.com/watch?v=mIG39JrtpqM

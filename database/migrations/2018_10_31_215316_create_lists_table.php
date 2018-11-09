@@ -16,6 +16,7 @@ class CreateListsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('lista_numero')->nullable();
+            $table->string('presidente')->nullable();
             $table->text('nombre')->nullable();
             $table->string('cantidad_integrantes')->nullable();
             $table->string('logo')->nullable();

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -63,8 +63,8 @@
     margin-bottom: 30px;
   }
   .btn-sq-lg {
-    width: 150px !important;
-    height: 150px !important;
+    width: 180px !important;
+    height: auto !important;
   }
   .btn-sq {
     width: 100px !important;
@@ -97,22 +97,40 @@
 
         @include('flash::message')
 
+        @if ($errors->any())
+      <ul class="alert alert-danger">
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  @endif
+
+  <form method="POST" action="{{ url('/votolista') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <p>
 
               @foreach($listas as $item)
-                <a href="{{ url('/verlista', [$item->id, $codigo_estudiante]) }}" class="btn btn-sq-lg btn-default">
+              {{--
+                {{ url('/verlista', [$item->id, $codigo_estudiante]) }}
+                --}}
+                <a href="" class="btn btn-sq-lg btn-default">
 
-                        <img src="{{ Storage::disk('local')->url($item->logo) }}" style="max-width: 100px; min-width: 100px" />
+                        <img src="{{ asset('public/'.$item->logo) }}" style="max-width: 100px; min-width: 100px" />
 
                   <!--<i class="fa fa-laptop fa-5x"></i>-->
                   <br/>
-                    <strong> Lista # {{ $item->lista_numero }} <br/>
-                    {{ $item->nombre }}</strong>
+                  <strong> {{ $item->presidente }} </strong>
+                  <br>
+                  <strong> Lista # {{ $item->lista_numero }}</strong><br/>
+                  <strong> {{ $item->nombre }}</strong>
                   </a>      
                @endforeach
-
+               {{--
+                {{ url('/votonulo', $codigo_estudiante) }}
+                --}}
                <a href="{{ url('/votonulo', $codigo_estudiante) }}" class="btn btn-sq-lg btn-default">
                 <i class="fa fa-close fa-5x"></i>
                   <br/>
@@ -122,6 +140,10 @@
              </p>
            </div>
          </div>
+
+
+          </form>
+
        </div>
 
      </div>

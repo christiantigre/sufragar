@@ -27,7 +27,17 @@
                                     <tr>
                                         <th>ID</th><td>{{ $list->id }}</td>
                                     </tr>
-                                    <tr><th> Lista Número </th><td> {{ $list->lista_numero }} </td></tr><tr><th> Nombre </th><td> {{ $list->nombre }} </td></tr><tr><th> Integrantes </th><td> {{ $list->cantidad_integrantes }} </td></tr>
+                                    <tr><th> Lista Número </th><td> {{ $list->lista_numero }} </td></tr>
+
+                                    <tr><th> Presidente </th><td> {{ $list->presidente }} </td></tr>
+
+                                    <tr><th> Nombre </th><td> {{ $list->nombre }} </td></tr><tr><th> Integrantes </th><td> {{ $list->cantidad_integrantes }} </td></tr>
+                                    <tr>
+                                        <th> Logo </th>
+                                        <td>
+                                            <img src="{{ asset('public/'.$list->logo) }}" style="max-width: 100px; min-width: 100px" />
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

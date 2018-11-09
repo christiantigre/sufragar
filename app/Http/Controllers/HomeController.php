@@ -9,6 +9,8 @@ use App\Voto;
 use Validator;
 use App\Http\Requests;
 
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -120,6 +122,10 @@ class HomeController extends Controller
             ]);
 
             flash('Voto realizado con exito...')->success()->important(); 
+
+            if(Auth::check()){
+                Auth::logout();
+            }
 
         } catch (\Exception $e) {
             flash('Ya existe un voto con este codigo :'. $request['numero_cedula'])->warning()->important(); 

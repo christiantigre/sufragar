@@ -8,6 +8,8 @@ use App\Lista;
 use Illuminate\Http\Request;
 use DB;
 use App\Integrante;
+use Image;
+use Illuminate\Support\Facades\Input; 
 
 class ListController extends Controller
 {
@@ -66,9 +68,21 @@ class ListController extends Controller
 			'descripcion' => 'nullable|max:191'
 		]);
         $requestData = $request->all();
-                if ($request->hasFile('logo')) {
+                /*if ($request->hasFile('logo')) {
             $requestData['logo'] = $request->file('logo')
                 ->store('uploads', 'public');
+        }*/
+        if ($request->hasFile('logo')) {
+            $file = Input::file('logo');
+            $uploadPath = public_path('uploads/listas/');
+            //$extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalName();
+            $image  = Image::make($file->getRealPath());
+            //$image->resize(1200, 900);
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            $image->save($uploadPath.$fileName);
+            //$file->move($uploadPath, $fileName);
+            $requestData['logo'] = 'uploads/listas/'.$fileName;
         }
 
         Lista::create($requestData);
@@ -120,9 +134,21 @@ class ListController extends Controller
 			'descripcion' => 'nullable|max:191'
 		]);
         $requestData = $request->all();
-                if ($request->hasFile('logo')) {
+                /*if ($request->hasFile('logo')) {
             $requestData['logo'] = $request->file('logo')
                 ->store('uploads', 'public');
+        }*/
+        if ($request->hasFile('logo')) {
+            $file = Input::file('logo');
+            $uploadPath = public_path('uploads/listas/');
+            //$extension = $file->getClientOriginalExtension();
+            $extension = $file->getClientOriginalName();
+            $image  = Image::make($file->getRealPath());
+            //$image->resize(1200, 900);
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            $image->save($uploadPath.$fileName);
+            //$file->move($uploadPath, $fileName);
+            $requestData['logo'] = 'uploads/listas/'.$fileName;
         }
 
         $list = Lista::findOrFail($id);
@@ -155,6 +181,8 @@ class ListController extends Controller
 
         return redirect('admin/list')->with('flash_message', 'List deleted!');
     }
+
+    
 
     protected function guard()
     {
