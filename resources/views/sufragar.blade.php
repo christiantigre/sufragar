@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/png" href="{{ asset('favicon.ico') }}"/>
 
+
   <title>sufEdu</title>
 
   <!-- Fonts -->
@@ -105,18 +106,17 @@
       </ul>
   @endif
 
-  <form method="POST" action="{{ url('/votolista') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+  
 
+              
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <p>
 
-              @foreach($listas as $item)
-              {{--
-                {{ url('/verlista', [$item->id, $codigo_estudiante]) }}
-                --}}
-                <a href="" class="btn btn-sq-lg btn-default">
+              @foreach($listas as $item)            
+
+              
+                <a href="{{ url('/getvotolista', [$item->id, $codigo_estudiante]) }}" class="btn btn-sq-lg btn-default"  >
 
                         <img src="{{ asset('public/'.$item->logo) }}" style="max-width: 100px; min-width: 100px" />
 
@@ -127,10 +127,9 @@
                   <strong> Lista # {{ $item->lista_numero }}</strong><br/>
                   <strong> {{ $item->nombre }}</strong>
                   </a>      
+
                @endforeach
-               {{--
-                {{ url('/votonulo', $codigo_estudiante) }}
-                --}}
+               
                <a href="{{ url('/votonulo', $codigo_estudiante) }}" class="btn btn-sq-lg btn-default">
                 <i class="fa fa-close fa-5x"></i>
                   <br/>
@@ -141,8 +140,11 @@
            </div>
          </div>
 
+         
 
-          </form>
+
+
+          
 
        </div>
 

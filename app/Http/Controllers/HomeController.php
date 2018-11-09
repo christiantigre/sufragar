@@ -54,7 +54,41 @@ class HomeController extends Controller
         return view('detallelista', compact('lista','integrantes','codigo_estudiante'));
     }
     
+    
+    public function getvotolista(Request $request, $idlista, $numero_cedula){
+
+        $request['numero_cedula'] = $numero_cedula;
+        $request['lista_id'] = $idlista;
+        $request['codigo_estudiante'] = $numero_cedula;
+
+        $verificar = Voto::where('numero_cedula', $numero_cedula)->first();
+
+        if(!empty($verificar)){
+            flash('Ya existe un voto con este codigo :'. $request['codigo_estudiante'])->warning()->important(); 
+            
+            return view('finalizavoto');
+        }
+        
+
+        try {
+
+            Voto::create([
+                'numero_cedula' => $request['numero_cedula'],
+                'lista_id' => $request['lista_id']
+            ]);
+
+            flash('Voto realizado con exito...')->success()->important(); 
+
+        } catch (\Exception $e) {
+            flash('Ya existe un voto con este codigo :'. $request['codigo_estudiante'])->warning()->important(); 
+        }
+
+        
+        return view('finalizavoto');
+    }
+
     public function votolista(Request $request){
+
 
         $rules = array
         (
@@ -94,26 +128,21 @@ class HomeController extends Controller
     
     public function votonulo(Request $request, $codigo_estudiante){
 
+        
+
         $request['numero_cedula'] = $codigo_estudiante;
-        $request['lista_id'] = '0';
+        $request['lista_id'] = 0;
+        $request['codigo_estudiante'] = $codigo_estudiante;
 
-        $rules = array
-        (
-            'numero_cedula' => 'required|unique:votos'
-        );
-        $messages = array
-        (
-            'numero_cedula.required' => 'Ingrese el código del estudiante.',
-            'numero_cedula.unique' => 'Ya existe un voto con este codigo',
-        );
+        $verificar = Voto::where('numero_cedula', $codigo_estudiante)->first();
 
-
-        $validator = Validator::make($request->all(), $rules, $messages);
-        if ($validator->fails())
-        {
-            return redirect()->back()->withInput()->withErrors($validator)->withInput();
+        if(!empty($verificar)){
+            flash('Ya existe un voto con este codigo :'. $request['codigo_estudiante'])->warning()->important(); 
             
+            return view('finalizavoto');
         }
+
+        
 
         try {
 

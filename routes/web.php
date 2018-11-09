@@ -71,4 +71,5 @@ Route::get('/verlista/{idlista}/{codigo_estudiante}', 'HomeController@verlista')
 //Route::get('/votolista/{idlista}/{codigo_estudiante}', 'HomeController@votolista');
 Route::post('/votolista', 'HomeController@votolista');
 Route::get('/votonulo/{codigo_estudiante}', 'HomeController@votonulo');
+Route::get('/getvotolista/{idlista}/{codigo_estudiante}', 'HomeController@getvotolista');
 

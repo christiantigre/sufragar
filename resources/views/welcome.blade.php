@@ -107,7 +107,7 @@ width: 150px;
 float: left;">
                     Código estudiante
                 </label>
-                    <input type="text" name="cod_estudiante" class="form-control" value="" placeholder="" style="display: block;
+                    <input type="text" name="cod_estudiante" required="required" class="form-control" value="" placeholder="" style="display: block;
     width: 94%;
     height: 34px;
     padding: 6px 12px;
